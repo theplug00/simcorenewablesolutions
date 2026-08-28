@@ -5,11 +5,12 @@ import { Sparkle, useClock, useReducedMotion, useScrollProgress } from "../lib/m
 /* ================= PRELOADER / BOOT ================= */
 
 const BOOT_LINES = [
-  "> comghy.sys — boot sequence v4.4",
-  "> loading calm modules ............... ok",
-  "> attaching to 47 client systems ..... ok",
-  "> human hours: protected",
-  "> noise floor: −82 dB",
+  "> simco.site-os v4.4 — boot sequence",
+  "> loading site modules ............... ok",
+  "> connecting 31 monitored sites ...... ok",
+  "> weather window: clear",
+  "> grid export: 142.6 MW",
+  "> safety counter: 1,204 days LTI-free",
   "> ready.",
 ];
 
@@ -17,7 +18,7 @@ export function Preloader({ onStart, onGone }: { onStart: () => void; onGone: ()
   const reduced = useReducedMotion();
   const [p, setP] = useState(0);
   const [exit, setExit] = useState(false);
-  const clock = useClock("Asia/Seoul");
+  const clock = useClock("Europe/London");
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -56,8 +57,8 @@ export function Preloader({ onStart, onGone }: { onStart: () => void; onGone: ()
       <div className="grid-reactor absolute inset-0 opacity-60" />
       <div className="relative flex h-full flex-col justify-between p-6 md:p-10">
         <div className="flex items-start justify-between">
-          <div className="mono-label text-sage">COMGHY / BOOT v4.4</div>
-          <div className="mono-label hidden text-mist sm:block">SEOUL — {clock} KST</div>
+          <div className="mono-label text-sage">SIMCO / SITE OS v4.4</div>
+          <div className="mono-label hidden text-mist sm:block">LONDON — {clock} GMT</div>
         </div>
 
         <div className="flex flex-1 flex-col justify-center gap-10 md:flex-row md:items-end md:justify-between">
@@ -79,8 +80,8 @@ export function Preloader({ onStart, onGone }: { onStart: () => void; onGone: ()
           <div className="h-px bg-sage transition-[width] duration-150 ease-out" style={{ width: `${p}%` }} />
         </div>
         <div className="mono-label mt-3 flex justify-between text-mist">
-          <span>MAKING MAN HAVE A STRESS-FREE LIFE</span>
-          <span className="hidden sm:block">SYS.CHECK 44-BASELINE GRID</span>
+          <span>SOLAR · BESS · CIVIL · ELECTRICAL · TELECOM</span>
+          <span className="hidden sm:block">EST. 2012 — PETERBOROUGH, UK</span>
         </div>
       </div>
     </div>
@@ -143,20 +144,23 @@ export function Cursor() {
 
 export function Logo({ dark = false }: { dark?: boolean }) {
   return (
-    <a href="#index" className="group flex items-center gap-2.5" aria-label="COMGHY home">
+    <a href="#index" className="group flex items-center gap-2.5" aria-label="Simco Renewables home">
       <svg viewBox="0 0 32 32" className="h-7 w-7" aria-hidden="true">
         <rect width="32" height="32" className={dark ? "fill-paper" : "fill-ink"} />
-        <path
-          d="M5 16h6c3.4 0 3.4-6.5 6.5-6.5S21 22.5 24 22.5 27 16 27 16"
+        <g
           fill="none"
           stroke="var(--color-sage)"
-          strokeWidth="2.6"
+          strokeWidth="2.3"
           strokeLinecap="round"
           className="transition-all duration-500 group-hover:stroke-amber"
-        />
+        >
+          <path d="M7 21.5h18" />
+          <path d="M11.5 21.5a4.5 4.5 0 0 1 9 0" />
+          <path d="M16 8.5v3M9.6 11.6l2.1 2.1M22.4 11.6l-2.1 2.1" />
+        </g>
       </svg>
       <span className={`disp text-lg tracking-tight ${dark ? "text-paper" : "text-ink"}`}>
-        COMGHY<span className="text-sage">®</span>
+        SIMCO<span className="text-sage">®</span>
       </span>
     </a>
   );
@@ -166,7 +170,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const progress = useScrollProgress();
-  const clock = useClock("Asia/Seoul");
+  const clock = useClock("Europe/London");
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
@@ -203,7 +207,7 @@ export function Header() {
           <div className="flex items-center gap-4">
             <div className="mono-label glass hidden items-center gap-2 rounded-full px-4 py-2 text-ink/80 xl:flex">
               <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-sage" />
-              ALL SYSTEMS CALM · {clock}
+              ALL SITES GENERATING · {clock}
             </div>
             <a
               href="#contact"
@@ -270,10 +274,10 @@ export function Header() {
           ))}
         </nav>
         <div className="relative flex items-center justify-between px-6 pb-8">
-          <a href="mailto:hello@comghy.systems" className="mono-label u-sweep text-mist">
-            hello@comghy.systems
+          <a href="mailto:hello@simcorenewables.co.uk" className="mono-label u-sweep text-mist">
+            hello@simcorenewables.co.uk
           </a>
-          <span className="mono-label text-mist">SEOUL — {clock}</span>
+          <span className="mono-label text-mist">PETERBOROUGH — {clock}</span>
         </div>
       </div>
     </>

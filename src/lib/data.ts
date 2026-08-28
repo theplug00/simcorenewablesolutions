@@ -1,8 +1,8 @@
 export const NAV = [
-  { n: "01", label: "Thesis", href: "#thesis" },
-  { n: "02", label: "Systems", href: "#systems" },
-  { n: "03", label: "Capabilities", href: "#capabilities" },
-  { n: "04", label: "Calm Index", href: "#calm" },
+  { n: "01", label: "Approach", href: "#approach" },
+  { n: "02", label: "Projects", href: "#projects" },
+  { n: "03", label: "Services", href: "#services" },
+  { n: "04", label: "Output", href: "#output" },
   { n: "05", label: "Method", href: "#method" },
   { n: "06", label: "Voices", href: "#voices" },
   { n: "07", label: "Journal", href: "#journal" },
@@ -10,268 +10,336 @@ export const NAV = [
 ];
 
 export const MARQUEE = [
-  "Unattended overnights",
-  "99.98% uptime",
-  "Zero copy-paste",
-  "Humans off the loop — in the room",
-  "Quiet is the KPI",
-  "Est. 2016 — Seoul / Amsterdam",
+  "SOLAR PV INSTALLATION",
+  "BATTERY STORAGE",
+  "SOLAR FARM CONSTRUCTION",
+  "GROUNDWORKS",
+  "CIVIL ENGINEERING",
+  "ELECTRICAL WORKS",
+  "TELECOM & SCADA",
+  "H&S CONSULTANCY",
+  "PROJECT MANAGEMENT",
+  "ENERGY EFFICIENCY",
 ];
 
-export const PRINCIPLES = [
-  {
-    n: "P.01",
-    title: "Boring is a budget line.",
-    body: "Every task a human repeats, a machine should own. We price the tedium first — it is usually the most expensive line item you already have.",
-  },
-  {
-    n: "P.02",
-    title: "Humans judge. Machines move.",
-    body: "Automation here is not headcount replacement; it is friction replacement. Your people keep the judgment, the context, and the credit.",
-  },
-  {
-    n: "P.03",
-    title: "Quiet is the KPI.",
-    body: "A healthy system does not beep, ping, or trend. We measure our success in the notifications that never fired.",
-  },
-  {
-    n: "P.04",
-    title: "Calm compounds.",
-    body: "An hour returned is sleep, a walk, a hard problem done properly. Multiply that by 47 live systems and you get a different kind of company.",
-  },
+export const HERO_LOG = [
+  { t: "09:41", msg: "harrow field — 41.2 MW exporting", kind: "ok" },
+  { t: "09:41", msg: "northgate bess — charging from PV", kind: "ok" },
+  { t: "09:42", msg: "fenland hub — scada heartbeat ok", kind: "ok" },
+  { t: "09:42", msg: "millbrook — pile integrity test passed", kind: "ok" },
+  { t: "09:43", msg: "inverter A7 — derated (ambient temp)", kind: "amber" },
+  { t: "09:43", msg: "dispatch window opened — 18 MWh", kind: "ok" },
 ];
 
-export type CaseStudy = {
-  sys: string;
-  name: string;
-  client: string;
+export interface CaseStudy {
+  id: string;
   sector: string;
-  year: string;
-  tagline: string;
-  desc: string;
-  img: string;
-  alt: string;
-  metrics: { v: string; l: string }[];
+  title: string;
+  scope: string;
+  deliverables: string[];
+  stats: { v: string; l: string }[];
   tags: string[];
+  role: string;
   status: string;
-};
+  statusKind: "ok" | "amber";
+  img: string;
+  year: string;
+}
 
 export const CASES: CaseStudy[] = [
   {
-    sys: "SYS.01",
-    name: "LEDGERLINE",
-    client: "Halvorsen Logistics",
-    sector: "Freight & Finance Ops",
-    year: "2025",
-    tagline: "Invoice-to-ledger autopilot.",
-    desc: "Halvorsen closed every month buried under 14,000 invoices keyed in by hand. We built an autopilot that reads, matches and posts them — humans now see only the 8% that actually need judgment.",
-    img: "https://image.qwenlm.ai/generated-images/f0e3dfd8-8a3a-45d2-8422-df216198019b/_result.png",
-    alt: "Paper invoices transforming into streams of light",
-    metrics: [
-      { v: "92%", l: "straight-through posting" },
-      { v: "11,400", l: "hours returned / year" },
-      { v: "9d → 36h", l: "monthly close" },
+    id: "01",
+    sector: "UTILITY-SCALE SOLAR",
+    title: "Harrow Field Solar Farm",
+    scope:
+      "48 MWp ground-mount farm on 94 hectares of grade-3 farmland — delivered from first driven pile to grid energisation in eleven months.",
+    deliverables: [
+      "72,400 bifacial modules",
+      "142 string inverters",
+      "4.1 km private access road",
     ],
-    tags: ["RPA", "OCR / IDP", "ERP Integration", "SAP"],
-    status: "LIVE · CYCLE 4,112",
+    stats: [
+      { v: "48 MWp", l: "INSTALLED CAPACITY" },
+      { v: "11,200", l: "HOMES SUPPLIED" },
+      { v: "19,400 t", l: "CO₂E AVOIDED / YR" },
+    ],
+    tags: ["EPC", "GROUND-MOUNT PV", "CIVIL WORKS"],
+    role: "EPC CONTRACTOR",
+    status: "LIVE — GENERATING",
+    statusKind: "ok",
+    img: "https://image.qwenlm.ai/generated-images/0af3e019-e504-4af4-88ea-015b82601a4c/_result.png",
+    year: "2023–24",
   },
   {
-    sys: "SYS.02",
-    name: "NIGHTSHIFT",
-    client: "Mino Retail Group",
-    sector: "E-commerce Ops",
+    id: "02",
+    sector: "C&I SOLAR + STORAGE",
+    title: "Northgate Rooftop + BESS",
+    scope:
+      "12 MWp of rooftop PV across six logistics sheds, paired with a 20 MWh battery that shaves the 4pm peak and sells evening dispatch.",
+    deliverables: [
+      "21,900 rooftop modules",
+      "8 × 2.5 MWh containers",
+      "DNO-approved HV connection",
+    ],
+    stats: [
+      { v: "12 MWp", l: "ROOFTOP PV" },
+      { v: "20 MWh", l: "STORAGE" },
+      { v: "−38%", l: "ENERGY COSTS" },
+    ],
+    tags: ["ROOFTOP PV", "BESS", "ELECTRICAL WORKS"],
+    role: "DESIGN & BUILD",
+    status: "LIVE — DISPATCHING",
+    statusKind: "ok",
+    img: "https://image.qwenlm.ai/generated-images/d98b45ab-4eac-4f1b-8db2-5ad1d052a04a/_result.png",
     year: "2024",
-    tagline: "The store restocks while you sleep.",
-    desc: "40,000 SKUs repriced, reordered and reconciled unattended every night. Buyers arrive to decisions instead of spreadsheets — and stockouts fell by almost two-thirds.",
-    img: "https://image.qwenlm.ai/generated-images/29128786-b9a4-45bd-9ceb-4507837149b9/_result.png",
-    alt: "Quiet automated warehouse with robotic arms at night",
-    metrics: [
-      { v: "40K", l: "SKUs handled nightly" },
-      { v: "−63%", l: "stockouts year on year" },
-      { v: "06:00", l: "decision report, ready" },
-    ],
-    tags: ["Forecasting", "API Orchestration", "Replenishment"],
-    status: "LIVE · NIGHT 471",
   },
   {
-    sys: "SYS.03",
-    name: "TRIAGE/9",
-    client: "Clinique Atlas",
-    sector: "Healthcare Intake",
+    id: "03",
+    sector: "ELECTRICAL & TELECOM",
+    title: "Fenland Grid Hub",
+    scope:
+      "A shared 33kV substation, fibre SCADA network and protection coordination — linking three separate farms into one clean export point.",
+    deliverables: [
+      "33kV switchroom & transformers",
+      "96 km MV cabling",
+      "SCADA over private fibre",
+    ],
+    stats: [
+      { v: "33kV", l: "SUBSTATION" },
+      { v: "96 km", l: "HV CABLE" },
+      { v: "3", l: "FARMS LINKED" },
+    ],
+    tags: ["SUBSTATION", "TELECOM", "SCADA"],
+    role: "BALANCE OF PLANT",
+    status: "LIVE — MONITORED",
+    statusKind: "ok",
+    img: "https://image.qwenlm.ai/generated-images/562f2e26-f578-4e1a-8921-9f8ad803ab0d/_result.png",
+    year: "2024–25",
+  },
+  {
+    id: "04",
+    sector: "CIVIL & GROUNDWORKS",
+    title: "Millbrook Foundations",
+    scope:
+      "4,100 driven piles, 12 km of drainage and 3.2 km of access road — on a waterlogged site, in fourteen winter weeks, without a single defect at handover.",
+    deliverables: [
+      "4,100 driven piles",
+      "12 km attenuation drainage",
+      "3.2 km aggregate access road",
+    ],
+    stats: [
+      { v: "4,100", l: "PILES DRIVEN" },
+      { v: "14 wks", l: "PROGRAMME" },
+      { v: "0", l: "DEFECTS AT HANDOVER" },
+    ],
+    tags: ["GROUNDWORKS", "CONCRETE", "DRAINAGE"],
+    role: "CIVIL CONTRACTOR",
+    status: "HANDED OVER — '24",
+    statusKind: "amber",
+    img: "https://image.qwenlm.ai/generated-images/c2c81f0a-73d0-4342-ad03-03e00d0f639b/_result.png",
     year: "2024",
-    tagline: "Forms that read themselves.",
-    desc: "Patient intake at Atlas meant 22 minutes of typing per visit. Our intake engine reads forms, verifies coverage and routes urgency — nurses meet people, not paperwork.",
-    img: "https://image.qwenlm.ai/generated-images/ecffee31-54fb-4cda-a076-41b96c83366e/_result.png",
-    alt: "Paper forms folding themselves into origami cranes",
-    metrics: [
-      { v: "22m → 3m", l: "intake time per patient" },
-      { v: "100%", l: "after-hours auto-routing" },
-      { v: "−71%", l: "administrative load" },
-    ],
-    tags: ["NLP", "Workflow", "Compliance", "HL7"],
-    status: "LIVE · WARD 9",
-  },
-  {
-    sys: "SYS.04",
-    name: "GLASSHOUSE",
-    client: "Forge & Co Foundries",
-    sector: "Manufacturing Telemetry",
-    year: "2023",
-    tagline: "Every machine, one quiet room.",
-    desc: "1,200 sensors across three plants used to scream into three separate inboxes. Glasshouse folds them into one calm surface — anomalies surface 41 minutes earlier, and nobody gets pinged for noise.",
-    img: "https://image.qwenlm.ai/generated-images/1cd9f8d0-2b59-4b49-bb95-64e754816366/_result.png",
-    alt: "Calm control room with softly glowing dashboards",
-    metrics: [
-      { v: "1,200", l: "sensors → one surface" },
-      { v: "+41min", l: "earlier anomaly catch" },
-      { v: "−88%", l: "false alerts" },
-    ],
-    tags: ["Telemetry", "Observability", "Alert Design", "MQTT"],
-    status: "LIVE · PLANT 3",
   },
 ];
 
-export const CAPABILITIES = [
+export interface Service {
+  n: string;
+  name: string;
+  blurb: string;
+  q: string[];
+}
+
+export const SERVICES: Service[] = [
   {
-    n: "C.01",
-    title: "Workflow Automation",
-    body: "End-to-end pipelines that move work between your tools without hands: approvals, handoffs, escalations, retries — choreographed, logged, and boring on purpose.",
-    tags: ["Orchestration", "Approvals", "Escalation paths"],
+    n: "01",
+    name: "SOLAR PV INSTALLATION & MAINTENANCE",
+    blurb:
+      "Ground-mount and rooftop arrays installed to IEC 62446 — and kept generating with scheduled O&M, thermography and 24/7 monitoring.",
+    q: ["IEC 62446", "O&M contracts", "Thermography"],
   },
   {
-    n: "C.02",
-    title: "Integration Fabric",
-    body: "ERP, CRM, WMS, the spreadsheet on Dana's desktop — woven into one coherent nervous system with 214 maintained connectors and typed contracts between every pair.",
-    tags: ["214 connectors", "Typed contracts", "Event mesh"],
+    n: "02",
+    name: "SOLAR FARM CONSTRUCTION",
+    blurb:
+      "Full EPC delivery for utility-scale solar: land appraisal and planning support, procurement, construction and grid energisation.",
+    q: ["EPC", "Utility-scale", "Grid handover"],
   },
   {
-    n: "C.03",
-    title: "Intelligent Documents",
-    body: "Invoices, intake forms, bills of lading, claims. We teach systems to read them at 99.2% accuracy and to ask a human only when a number genuinely looks strange.",
-    tags: ["OCR / IDP", "Extraction", "Human-in-the-loop"],
+    n: "03",
+    name: "BATTERY ENERGY STORAGE (BESS)",
+    blurb:
+      "Grid-scale and C&I storage — design, installation and dispatch optimisation for peak shaving, frequency response and revenue stacking.",
+    q: ["Grid-scale", "Peak shaving", "FCR revenue"],
   },
   {
-    n: "C.04",
-    title: "Autonomous Agents",
-    body: "Carefully scoped AI colleagues that draft, route, reconcile and follow up — with audit trails, spending limits, and a big red off switch we are not shy about using.",
-    tags: ["LLM ops", "Guardrails", "Audit trails"],
+    n: "04",
+    name: "RENEWABLE-ENERGY CONSULTANCY",
+    blurb:
+      "Yield modelling, technology selection, planning strategy and independent engineering review for developers and investors.",
+    q: ["Yield modelling", "Due diligence", "Planning"],
   },
   {
-    n: "C.05",
-    title: "Observability & Care",
-    body: "Monitoring that whispers instead of screams. Self-healing retries, graceful degradation, and a 24/7 ward team so on-call becomes a formality, not a lifestyle.",
-    tags: ["24/7 ward", "Self-healing", "Alert design"],
+    n: "05",
+    name: "ELECTRICAL & MECHANICAL WORKS",
+    blurb:
+      "HV/LV cabling, inverters, switchgear, transformers and mechanical mounting systems — installed, torqued, tested and certified.",
+    q: ["HV/LV", "Switchgear", "Testing"],
   },
   {
-    n: "C.06",
-    title: "Legacy Rescue",
-    body: "The mainframe from 1998 that runs payroll? We don't judge. Screen-scraping bridges and patient APIs keep it earning its keep until you're ready to retire it.",
-    tags: ["Screen bridges", "COBOL-friendly", "Zero-downtime"],
+    n: "06",
+    name: "CIVIL ENGINEERING FOR RENEWABLES",
+    blurb:
+      "Design and delivery of the civil package: access roads, drainage, structures and the statutory consents that keep the programme honest.",
+    q: ["Drainage", "Access roads", "Consents"],
+  },
+  {
+    n: "07",
+    name: "GROUNDWORKS & CONCRETE FOUNDATIONS",
+    blurb:
+      "Piling, ballast systems, trenching and concrete foundations — the unglamorous work that keeps a 25-year asset perfectly level.",
+    q: ["Piling", "Concrete", "Trenching"],
+  },
+  {
+    n: "08",
+    name: "RENEWABLE PROJECT MANAGEMENT",
+    blurb:
+      "Single-point delivery management: programme, procurement, cost control and stakeholder reporting from day one to defects liability.",
+    q: ["Programme", "Cost control", "Reporting"],
+  },
+  {
+    n: "09",
+    name: "HEALTH & SAFETY CONSULTANCY",
+    blurb:
+      "CDM 2015 principal designer support, RAMS, site inductions and behavioural safety programmes built for heavy civil sites.",
+    q: ["CDM 2015", "RAMS", "Audits"],
+  },
+  {
+    n: "10",
+    name: "ENERGY-EFFICIENCY SOLUTIONS",
+    blurb:
+      "Metering, LED retrofits, power-factor correction and demand management — cutting bills before the generation even comes online.",
+    q: ["Metering", "PF correction", "Demand mgmt"],
   },
 ];
 
-export const CALM_METRICS = [
-  { v: 312410, suffix: "", label: "Human hours returned", note: "since 2016, audited annually" },
-  { v: 47, suffix: "", label: "Systems live & humming", note: "across 9 industries" },
-  { v: 214, suffix: "M", label: "Tasks run unattended", note: "trailing twelve months" },
-  { v: 192, suffix: "s", label: "Median incident response", note: "3m 12s — mostly automated" },
+export const METRICS = [
+  { v: 212, d: 0, suffix: " MWp", label: "INSTALLED CAPACITY" },
+  { v: 31, d: 0, suffix: "", label: "GRID CONNECTIONS" },
+  { v: 1.2, d: 1, suffix: "M", label: "LTI-FREE WORK-HOURS" },
+  { v: 14, d: 0, suffix: "", label: "YEARS IN THE FIELD" },
 ];
 
-export const QUARTERS = [
-  { q: "Q1·24", h: 6.2 },
-  { q: "Q2·24", h: 8.9 },
-  { q: "Q3·24", h: 11.4 },
-  { q: "Q4·24", h: 13.8 },
-  { q: "Q1·25", h: 15.2 },
-  { q: "Q2·25", h: 18.6 },
-  { q: "Q3·25", h: 21.3 },
-  { q: "Q4·25", h: 24.1 },
+export const COUNTERS = [
+  { v: 212, d: 0, suffix: " MWp", label: "INSTALLED CAPACITY" },
+  { v: 184, d: 0, suffix: " GWh", label: "GENERATED IN '25" },
+  { v: 96, d: 0, suffix: "K t", label: "CO₂E AVOIDED / YR" },
+  { v: 1.2, d: 1, suffix: "M", label: "LTI-FREE WORK-HOURS" },
+];
+
+export const BARS = [
+  { l: "'19", v: 6 },
+  { l: "'20", v: 14 },
+  { l: "'21", v: 26 },
+  { l: "'22", v: 41 },
+  { l: "'23", v: 63 },
+  { l: "'24", v: 96 },
+  { l: "'25", v: 184 },
+];
+
+export const MONITORS = [
+  "PERFORMANCE RATIO — 84.2%",
+  "MEAN TIME TO REPAIR — 3.1 H",
+  "BESS CYCLES TO DATE — 4,820",
 ];
 
 export const METHOD = [
   {
     n: "01",
-    title: "Listen",
-    time: "Week 0",
-    body: "We shadow your operators for a week and time every keystroke. The map of where the hours actually go is always a surprise. Usually an expensive one.",
+    name: "SURVEY & DESIGN",
+    blurb:
+      "Ground investigation, topographic surveys, yield modelling and DNO applications — the paperwork that prevents the pain.",
+    q: ["GI & topo surveys", "Yield modelling", "DNO applications"],
   },
   {
     n: "02",
-    title: "Map",
-    time: "Weeks 1–2",
-    body: "Process mining turns observations into a live diagram of your operation — every loop, exception and workaround drawn in the open, priced in hours.",
+    name: "GROUNDWORKS & CIVIL",
+    blurb:
+      "Piling, concrete foundations, drainage and access roads — poured right, once, so the next 25 years stay level.",
+    q: ["Piling", "Foundations", "Drainage"],
   },
   {
     n: "03",
-    title: "Build",
-    time: "Weeks 3–6",
-    body: "We automate the loudest loops first, in production-shaped slices. Your team watches each system go quiet, one Friday at a time.",
+    name: "INSTALL & WIRE",
+    blurb:
+      "Mounting structures, modules, inverters, HV cabling — and the telecom backbone that lets every panel report home.",
+    q: ["PV installation", "HV cabling", "SCADA & telecom"],
   },
   {
     n: "04",
-    title: "Quiet",
-    time: "Forever",
-    body: "The ward takes over: monitoring, self-healing, monthly tuning. You get a one-page letter saying everything is fine. Every month. Boringly.",
+    name: "ENERGISE & O&M",
+    blurb:
+      "Commissioning, grid energisation and 24/7 monitoring with maintenance crews who treat your yield like their own.",
+    q: ["Commissioning", "Grid energisation", "24/7 O&M"],
   },
 ];
 
-export const VOICES = [
+export const TESTIMONIALS = [
   {
-    quote: "We closed the books with three people on energy drinks. Now it closes overnight and nobody texts me.",
-    name: "Ingrid Halvorsen",
-    role: "CFO, Halvorsen Logistics",
-    sys: "SYS.01",
+    quote:
+      "Simco drove 4,100 piles through a wet winter and hit every milestone. The site handed over clean enough to eat off.",
+    name: "D. Okafor",
+    role: "PROGRAMME DIRECTOR — FENLAND ENERGY PARK",
+    stamp: "CIVIL",
   },
   {
-    quote: "Comghy didn't sell us robots. They gave us our evenings back.",
-    name: "Daan Vermeer",
-    role: "COO, Mino Retail Group",
-    sys: "SYS.02",
+    quote:
+      "One contractor for civil, electrical and telecom meant one phone number when the grid operator called. That alone was worth the contract.",
+    name: "S. Whitmore",
+    role: "HEAD OF INFRASTRUCTURE — NORTHGATE",
+    stamp: "BESS",
   },
   {
-    quote: "The scariest part is how boring it all got. Boring is exactly what we paid for.",
-    name: "Dr. Leïla Amrani",
-    role: "Ops Director, Clinique Atlas",
-    sys: "SYS.03",
-  },
-];
-
-export const JOURNAL = [
-  {
-    date: "FEB 2026",
-    title: "The $4.1M spreadsheet",
-    teaser: "What manual reconciliation really costs once you price in the fear.",
-    read: "06 MIN",
-  },
-  {
-    date: "DEC 2025",
-    title: "Your ERP is lonely",
-    teaser: "Integration debt is the interest you pay on every hurry.",
-    read: "04 MIN",
-  },
-  {
-    date: "OCT 2025",
-    title: "Interfaces that whisper",
-    teaser: "Design principles for operations screens nobody should have to stare at.",
-    read: "07 MIN",
+    quote:
+      "Their H&S team ran inductions like clockwork. Zero LTIs across fourteen months — and we were audited twice.",
+    name: "R. Hale",
+    role: "SITE OPERATIONS LEAD — HARROW FIELD",
+    stamp: "H&S",
   },
 ];
 
 export const CLIENTS = [
-  "Halvorsen Logistics",
-  "Mino Retail Group",
-  "Clinique Atlas",
-  "Forge & Co Foundries",
-  "Bankhaus Lindt",
-  "Okto Brewing",
-  "Vela Marine",
-  "Nordwind Air",
+  "FENLAND ENERGY PARK",
+  "NORTHGATE LOGISTICS",
+  "MERIDIAN GRID",
+  "SOLARIS CAPITAL",
+  "TERRAFIRM CIVIL",
+  "UK GRID SERVICES",
+  "HALCYON REITS",
+  "VERDANT POWER",
 ];
 
-export const HERO_LOG = [
-  { t: "03:41:07", msg: "nightshift.replenish — 12,842 tasks queued", kind: "sage" },
-  { t: "03:41:09", msg: "ledgerline.posting — batch 4,112 settled", kind: "sage" },
-  { t: "03:41:12", msg: "glasshouse.telemetry — 1,200 sensors nominal", kind: "sage" },
-  { t: "03:41:15", msg: "triage.route — after-hours intake auto-routed", kind: "amber" },
-  { t: "03:41:16", msg: "ward.oncall — 0 pages this week", kind: "sage" },
+export const POSTS = [
+  {
+    cat: "FIELD LOG",
+    title: "Pouring in frost: cold-weather concrete at Millbrook",
+    read: "06 MIN",
+    date: "JAN 2026",
+  },
+  {
+    cat: "TECHNICAL NOTE",
+    title: "BESS dispatch: shaving the 4pm peak at Northgate",
+    read: "09 MIN",
+    date: "DEC 2025",
+  },
+  {
+    cat: "PROCESS",
+    title: "What a 33kV DNO application actually looks like",
+    read: "07 MIN",
+    date: "NOV 2025",
+  },
 ];
+
+export const CONTACT = {
+  email: "hello@simcorenewables.co.uk",
+  phone: "+44 (0)20 7946 0810",
+  address: "Unit 7, Meridian Business Park, Peterborough PE2 6FL, United Kingdom",
+};
