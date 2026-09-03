@@ -77,7 +77,7 @@ export function Preloader({ onStart, onGone }: { onStart: () => void; onGone: ()
         </div>
 
         <div className="h-px w-full bg-paper/15">
-          <div className="h-px bg-sage transition-[width] duration-150 ease-out" style={{ width: `${p}%` }} />
+          <div className="grad-bar h-px transition-[width] duration-150 ease-out" style={{ width: `${p}%` }} />
         </div>
         <div className="mono-label mt-3 flex justify-between text-mist">
           <span>SOLAR · BESS · CIVIL · ELECTRICAL · TELECOM</span>
@@ -160,7 +160,7 @@ export function Logo({ dark = false }: { dark?: boolean }) {
         </g>
       </svg>
       <span className={`disp text-lg tracking-tight ${dark ? "text-paper" : "text-ink"}`}>
-        SIMCO<span className="text-sage">®</span>
+        SIMCO<span className={dark ? "text-sage" : "text-moss"}>®</span>
       </span>
     </a>
   );
@@ -192,7 +192,7 @@ export function Header() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-[70] transition-all duration-500 ${
-          scrolled ? "glass shadow-[0_1px_0_rgba(20,24,16,0.06)]" : "bg-transparent"
+          scrolled ? "glass shadow-[0_1px_0_rgba(12,35,64,0.08)]" : "bg-transparent"
         }`}
       >
         <div className="flex h-[72px] items-center justify-between px-5 md:px-10">
@@ -230,7 +230,7 @@ export function Header() {
           </div>
         </div>
         <div className="h-px w-full bg-ink/8">
-          <div className="h-px bg-sage" style={{ width: `${progress * 100}%` }} />
+          <div className="grad-bar h-px" style={{ width: `${progress * 100}%` }} />
         </div>
       </header>
 

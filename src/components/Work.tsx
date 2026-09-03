@@ -132,7 +132,7 @@ export function Voices() {
           {TESTIMONIALS.map((v, i) => (
             <Reveal key={v.name} delay={i * 140} variant="scale" className={POSITIONS[i]}>
               <figure
-                className={`glass group relative h-full p-8 shadow-[0_18px_50px_-24px_rgba(20,24,16,0.35)] transition-all duration-500 hover:z-20 hover:rotate-0 hover:scale-[1.03] hover:shadow-[0_28px_70px_-20px_rgba(20,24,16,0.45)] md:p-10 ${TILTS[i]}`}
+                className={`glass group relative h-full p-8 shadow-[0_18px_50px_-24px_rgba(8,26,47,0.35)] transition-all duration-500 hover:z-20 hover:rotate-0 hover:scale-[1.03] hover:shadow-[0_28px_70px_-20px_rgba(8,26,47,0.45)] md:p-10 ${TILTS[i]}`}
                 data-cursor
               >
                 {/* stamp */}
