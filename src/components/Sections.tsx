@@ -8,7 +8,7 @@ export function SectionLabel({ n, title, tone = "ink" }: { n: string; title: str
       <span className={`mono-label ${tone === "sage" ? "text-sage" : "text-moss"}`}>
         {n} / {title}
       </span>
-      <span className={`h-px flex-1 ${tone === "sage" ? "bg-paper/15" : "bg-ink/12"}`} />
+      <span className={`h-px flex-1 ${tone === "sage" ? "bg-paper/15" : "rule-energy"}`} />
       <Sparkle className={`h-3.5 w-3.5 ${tone === "sage" ? "text-sage" : "text-moss"}`} />
     </div>
   );
@@ -228,8 +228,8 @@ export function CalmIndex() {
           <div ref={gRef} className="lg:col-span-5">
             <div className="relative mx-auto w-fit" data-cursor>
               <svg viewBox="0 0 320 320" className="h-[280px] w-[280px] md:h-[340px] md:w-[340px]">
-                <circle cx="160" cy="160" r={R} fill="none" stroke="rgba(233,234,225,0.12)" strokeWidth="7" />
-                <circle cx="160" cy="160" r={R - 16} fill="none" stroke="rgba(143,191,106,0.15)" strokeWidth="1" strokeDasharray="3 6" className="spin-slow" style={{ transformOrigin: "160px 160px" }} />
+                <circle cx="160" cy="160" r={R} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="7" />
+                <circle cx="160" cy="160" r={R - 16} fill="none" stroke="rgba(46,237,150,0.28)" strokeWidth="1" strokeDasharray="3 6" className="spin-slow" style={{ transformOrigin: "160px 160px" }} />
                 <circle
                   cx="160"
                   cy="160"
